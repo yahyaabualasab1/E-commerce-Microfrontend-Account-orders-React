@@ -81,7 +81,6 @@ export function RegisterPage() {
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <AuthBrandPanel
             compact
-            scene="register"
             image={fashionImages.authRegister}
             headline="Build your wardrobe story."
             description="Create an account for curated fashion, saved pieces, and refined order management."
@@ -95,7 +94,6 @@ export function RegisterPage() {
 
         <Box sx={{ display: { xs: 'none', lg: 'block' }, p: 2 }}>
           <AuthBrandPanel
-            scene="register"
             image={fashionImages.authRegister}
             headline="Build your wardrobe story."
             description="Join a polished marketplace account experience for style discovery, saved pieces, and every order detail."

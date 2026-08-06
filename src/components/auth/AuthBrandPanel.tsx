@@ -9,7 +9,6 @@ type AuthBrandPanelProps = {
   headline: string;
   description: string;
   features: string[];
-  scene?: 'login' | 'register';
   compact?: boolean;
   children?: ReactNode;
 };

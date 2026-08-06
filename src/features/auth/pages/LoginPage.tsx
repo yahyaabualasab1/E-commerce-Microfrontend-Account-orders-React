@@ -87,7 +87,6 @@ export function LoginPage() {
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <AuthBrandPanel
             compact
-            scene="login"
             image={fashionImages.authLogin}
             headline="Style that feels like you."
             description="Curated fashion, secure account access, and effortless order tracking."
@@ -101,7 +100,6 @@ export function LoginPage() {
 
         <Box sx={{ display: { xs: 'none', lg: 'block' }, p: 2 }}>
           <AuthBrandPanel
-            scene="login"
             image={fashionImages.authLogin}
             headline="Style that feels like you."
             description="Enter a marketplace account designed around refined style, saved favorites, and complete order clarity."
