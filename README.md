@@ -4,6 +4,15 @@ Account Orders Microfrontend is a React and Vite application for the account are
 
 The project currently uses an in-memory mock service layer with asynchronous Promise-based calls. This keeps the UI close to production behavior while remaining easy to run locally without a backend.
 
+## Submission Links
+
+- Live component URL: [https://e-commerce-microfrontend-account-or.vercel.app](https://e-commerce-microfrontend-account-or.vercel.app)
+- Repository: [https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-](https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-)
+- Group app type: Fashion & apparel marketplace
+- Owned role: Account & orders
+- Framework: React
+- Material Design library: Material UI
+
 ## Project Overview
 
 - Framework: React 19 with TypeScript
@@ -13,6 +22,7 @@ The project currently uses an in-memory mock service layer with asynchronous Pro
 - Forms and validation: React Hook Form with Zod
 - Data layer: mock services under `src/services`
 - Microfrontend entry points: mount function and custom element registration
+- Deployment: Vercel
 
 Demo credentials:
 
@@ -36,6 +46,20 @@ You can also create a new account from the register page.
 - Shared UI primitives for page headers, loading indicators, empty states, error retry states, and snackbars
 - Route-level lazy loading for better initial bundle performance
 - Web Component support for future host application integration
+
+## Exposed Routes
+
+The component is a standalone SPA and supports the following routes:
+
+- `/login`
+- `/register`
+- `/dashboard`
+- `/profile`
+- `/orders`
+- `/wishlist`
+- `/reviews`
+
+Protected routes redirect unauthenticated users to `/login`. Vercel SPA rewrites are configured in `vercel.json`, so refreshing nested routes such as `/profile`, `/orders`, `/wishlist`, or `/reviews` works after deployment.
 
 ## Folder Structure
 
@@ -118,6 +142,7 @@ The app already exposes two integration paths for a host application:
 
 - `mountAccountOrdersApp(containerOrId)` mounts the React app into a provided DOM element.
 - `registerAccountOrdersElement()` registers the custom element named `account-orders-microfrontend`.
+- The deployed URL can also be loaded by a shell app using iframe composition.
 
 A future host shell can load the built JavaScript bundle, call the mount function directly, or render:
 
@@ -131,6 +156,12 @@ Recommended next integration steps:
 - Externalize shared dependencies such as React and Material UI if the host application already provides them.
 - Add host-provided configuration for API base URL, auth tokens, locale, and navigation callbacks.
 - Define a versioned contract for events emitted from the microfrontend to the host shell.
+
+## Integration Notes
+
+This component is prepared to integrate with the group shell as a live deployed microfrontend URL. For the fastest cross-framework integration, the shell can load this component through iframe composition. For a more advanced integration, the shell can use the provided custom element wrapper after loading the built bundle.
+
+The hardest part of this component was keeping account-specific state isolated while still using mock data. Session, wishlist, reviews, profile preferences, and profile images are persisted with `localStorage` keys so the UI behaves like a real account area without requiring a backend.
 
 ### Emitted CustomEvents
 
