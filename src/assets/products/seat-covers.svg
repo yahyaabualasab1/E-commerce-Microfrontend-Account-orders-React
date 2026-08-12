@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="Leather seat covers">
-  <rect width="900" height="680" fill="#f4eee9"/>
-  <path d="M324 106h252c30 0 54 24 54 54v204c0 32-26 58-58 58H328c-32 0-58-26-58-58V160c0-30 24-54 54-54z" fill="#202936"/>
-  <path d="M314 398h272c48 0 88 40 88 88v84c0 20-16 36-36 36H262c-20 0-36-16-36-36v-84c0-48 40-88 88-88z" fill="#283344"/>
-  <path d="M354 150h192c20 0 36 16 36 36v148c0 20-16 36-36 36H354c-20 0-36-16-36-36V186c0-20 16-36 36-36z" fill="#c96b7a" opacity=".9"/>
-  <path d="M450 150v218M318 260h264M306 474h288" stroke="#f3d0d6" stroke-width="13" stroke-linecap="round" opacity=".8"/>
-  <text x="112" y="104" fill="#202632" font-family="Arial, sans-serif" font-size="24" font-weight="700">Leather Seat Covers</text>
-</svg>

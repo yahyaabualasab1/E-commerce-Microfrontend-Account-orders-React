@@ -1,16 +1,16 @@
-import airFilterImage from '@assets/products/air-filter.svg';
-import brakeKitImage from '@assets/products/brake-kit.svg';
-import carBatteryImage from '@assets/products/car-battery.svg';
-import carCareKitImage from '@assets/products/car-care-kit.svg';
-import dashCamImage from '@assets/products/dash-cam.svg';
-import engineOilImage from '@assets/products/engine-oil.svg';
-import floorMatsImage from '@assets/products/floor-mats.svg';
-import ledHeadlightsImage from '@assets/products/led-headlights.svg';
-import roofRackImage from '@assets/products/roof-rack.svg';
-import seatCoversImage from '@assets/products/seat-covers.svg';
-import sparkPlugsImage from '@assets/products/spark-plugs.svg';
-import tireInflatorImage from '@assets/products/tire-inflator.svg';
-import wiperBladesImage from '@assets/products/wiper-blades.svg';
+import airFilterImage from '@assets/products/air-filter.jpg';
+import brakeKitImage from '@assets/products/brake-kit.jpg';
+import carBatteryImage from '@assets/products/car-battery.jpg';
+import carCareKitImage from '@assets/products/car-care-kit.jpg';
+import dashCamImage from '@assets/products/dash-cam.jpg';
+import engineOilImage from '@assets/products/engine-oil.jpg';
+import floorMatsImage from '@assets/products/floor-mats.jpg';
+import ledHeadlightsImage from '@assets/products/led-headlights.jpg';
+import roofRackImage from '@assets/products/roof-rack.jpg';
+import seatCoversImage from '@assets/products/seat-covers.jpg';
+import sparkPlugsImage from '@assets/products/spark-plugs.jpg';
+import tireInflatorImage from '@assets/products/tire-inflator.jpg';
+import wiperBladesImage from '@assets/products/wiper-blades.jpg';
 
 export const productImages = {
   authLogin: brakeKitImage,
