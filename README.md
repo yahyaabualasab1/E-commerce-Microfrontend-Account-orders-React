@@ -7,7 +7,7 @@ The project currently uses an in-memory mock service layer with asynchronous Pro
 ## Submission Links
 
 - Live component URL: [https://e-commerce-microfrontend-account-or.vercel.app](https://e-commerce-microfrontend-account-or.vercel.app)
-- Repository: [https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-](https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-)
+- Repository: [https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-React](https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-React)
 - Group app type: Car parts & accessories
 - Owned role: Account & orders
 - Framework: React
