@@ -21,26 +21,28 @@ export const defaultNotificationPreferences: NotificationPreferences = {
   orderUpdates: true,
   wishlistPriceDrops: true,
   reviewReminders: true,
-  fashionRecommendations: true,
+  partsRecommendations: true,
   promotionalEmails: false,
   newCollectionAlerts: true,
 };
 
-export const fashionPreferenceOptions = [
-  'Men',
-  'Women',
-  'Shoes',
-  'Bags',
+export const vehiclePreferenceOptions = [
+  'Brakes',
+  'Lighting',
+  'Exterior',
+  'Interior',
+  'Electronics',
+  'Maintenance',
+  'Engine',
+  'Tires',
   'Accessories',
-  'Sportswear',
-  'Formal Wear',
-  'Streetwear',
-  'Casual Wear',
+  'Tools',
+  'Car Care',
 ];
 
 export function splitName(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
-  const firstName = parts[0] ?? 'Fashion';
+  const firstName = parts[0] ?? 'Auto';
   const lastName = parts.slice(1).join(' ') || 'Member';
 
   return { firstName, lastName };
@@ -69,14 +71,15 @@ export function normalizeUser(user: AuthUser): AuthUser {
     country: user.country ?? 'United States',
     postalCode: user.postalCode ?? '10013',
     memberSince: user.memberSince ?? user.createdAt,
-    membershipLevel: user.membershipLevel ?? 'Rose Gold Member',
+    membershipLevel: user.membershipLevel ?? 'Pro Garage Member',
     loyaltyPoints: user.loyaltyPoints ?? 2840,
     preferredCategories: storedPreferences ??
-      user.preferredCategories ?? ['Women', 'Bags', 'Shoes'],
-    notificationPreferences:
-      storedNotificationPreferences ??
-      user.notificationPreferences ??
-      defaultNotificationPreferences,
+      user.preferredCategories ?? ['Brakes', 'Lighting', 'Exterior'],
+    notificationPreferences: {
+      ...defaultNotificationPreferences,
+      ...user.notificationPreferences,
+      ...storedNotificationPreferences,
+    },
   };
 }
 
@@ -112,5 +115,5 @@ function loadStoredObject<T>(key: string) {
 }
 
 export function getUserDisplayName(user: AuthUser | null) {
-  return user?.fullName ?? user?.name ?? 'Fashion Member';
+  return user?.fullName ?? user?.name ?? 'Auto Member';
 }

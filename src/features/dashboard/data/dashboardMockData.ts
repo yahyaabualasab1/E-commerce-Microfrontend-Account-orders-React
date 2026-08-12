@@ -37,7 +37,7 @@ export const dashboardStats: DashboardStat[] = [
   {
     label: 'Profile',
     value: '82%',
-    helper: 'Add preferences to complete',
+    helper: 'Add vehicle preferences to complete',
     icon: TaskAltOutlinedIcon,
     color: 'warning',
   },
@@ -49,5 +49,5 @@ export const recentOrder = {
   itemCount: 3,
   total: '$186.40',
   placedAt: 'Aug 4, 2026',
-  summary: 'Linen blazer, ribbed tank, wide-leg denim',
+  summary: 'Dash cam, engine oil, wiper blades',
 };

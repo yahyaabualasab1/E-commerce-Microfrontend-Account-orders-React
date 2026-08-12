@@ -32,7 +32,7 @@ export const recentAccountActivity: AccountActivity[] = [
   {
     id: 'wishlist-item-removed',
     title: 'Wishlist item removed',
-    description: 'A saved fashion piece was removed from the wishlist.',
+    description: 'A saved car part was removed from the wishlist.',
     occurredAt: '2026-08-03T11:05:00.000Z',
     icon: FavoriteBorderRoundedIcon,
   },

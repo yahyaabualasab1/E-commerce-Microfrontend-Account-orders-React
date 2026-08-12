@@ -3,7 +3,7 @@ import { mockWishlist } from '@mocks/wishlist';
 import { cloneMock, rejectMock, resolveMock } from '@services/mockApi';
 import { loadFromStorage, saveToStorage } from '@utils/storage';
 
-const wishlistStorageKey = 'account-orders.wishlist.v2';
+const wishlistStorageKey = 'account-orders.wishlist.car-parts.v1';
 
 function isLocalAssetUrl(value: string) {
   return value.length > 0 && !value.startsWith('http') && !value.startsWith('data:');

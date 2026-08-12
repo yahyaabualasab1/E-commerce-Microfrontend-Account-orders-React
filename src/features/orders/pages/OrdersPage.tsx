@@ -37,7 +37,7 @@ export function OrdersPage() {
         <PageHeader
           eyebrow="Order history"
           title="Your orders"
-          description="Review recent fashion purchases, shipping details, payment methods, and purchased products."
+          description="Review recent car parts purchases, shipping details, payment methods, and purchased products."
           icon={<Inventory2OutlinedIcon />}
         />
 
@@ -57,7 +57,7 @@ export function OrdersPage() {
           <EmptyState
             icon={<Inventory2OutlinedIcon fontSize="large" />}
             title="No orders yet"
-            description="Completed fashion purchases will appear here once orders are available."
+            description="Completed car parts purchases will appear here once orders are available."
             actionLabel="Restore mock orders"
             onAction={handleRestore}
           />

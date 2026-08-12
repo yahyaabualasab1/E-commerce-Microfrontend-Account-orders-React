@@ -24,7 +24,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { AuthBrandPanel } from '@components/auth/AuthBrandPanel';
 import { PasswordStrengthIndicator } from '@components/auth/PasswordStrengthIndicator';
 import { AppSnackbar, type AppNotice } from '@components/feedback/AppSnackbar';
-import { fashionImages } from '@config/images';
+import { productImages } from '@config/images';
 import { useAuth } from '@contexts/auth/useAuth';
 import { registerSchema, type RegisterFormValues } from '@features/auth/schemas/authSchemas';
 import { getErrorMessage } from '@utils/asyncError';
@@ -81,12 +81,12 @@ export function RegisterPage() {
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <AuthBrandPanel
             compact
-            image={fashionImages.authRegister}
-            headline="Build your wardrobe story."
-            description="Create an account for curated fashion, saved pieces, and refined order management."
+            image={productImages.authRegister}
+            headline="Build your garage account."
+            description="Create an account for trusted parts, saved products, and refined order management."
             features={[
               'Personalized account tools',
-              'Saved wishlist styling',
+              'Saved parts wishlist',
               'Verified review history',
             ]}
           />
@@ -94,12 +94,12 @@ export function RegisterPage() {
 
         <Box sx={{ display: { xs: 'none', lg: 'block' }, p: 2 }}>
           <AuthBrandPanel
-            image={fashionImages.authRegister}
-            headline="Build your wardrobe story."
-            description="Join a polished marketplace account experience for style discovery, saved pieces, and every order detail."
+            image={productImages.authRegister}
+            headline="Build your garage account."
+            description="Join a polished marketplace account experience for parts discovery, saved products, and every order detail."
             features={[
               'Personalized account tools',
-              'Saved wishlist styling',
+              'Saved parts wishlist',
               'Verified review history',
             ]}
           />
@@ -139,7 +139,7 @@ export function RegisterPage() {
                     Create your profile
                   </Typography>
                   <Typography color="text.secondary" sx={{ mt: 1 }}>
-                    Save styles, track purchases, and manage reviews with a secure marketplace
+                    Save parts, track purchases, and manage reviews with a secure marketplace
                     account.
                   </Typography>
                 </Box>

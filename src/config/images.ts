@@ -1,32 +1,32 @@
-import sunglassesImage from '@assets/products/accessories-sunglasses.jpg';
-import handbagImage from '@assets/products/handbag.jpg';
-import hoodieImage from '@assets/products/hoodie.jpg';
-import leatherToteImage from '@assets/products/leather-tote.jpg';
-import midiDressImage from '@assets/products/midi-dress.jpg';
-import reviewDetailImage from '@assets/products/review-detail.jpg';
-import silkShirtImage from '@assets/products/silk-shirt.jpg';
-import sneakersImage from '@assets/products/sneakers.jpg';
-import sportswearImage from '@assets/products/sportswear.jpg';
-import suedeLoafersImage from '@assets/products/suede-loafers.jpg';
-import trenchCoatImage from '@assets/products/trench-coat.jpg';
-import utilityJacketImage from '@assets/products/utility-jacket.jpg';
-import watchImage from '@assets/products/watch.jpg';
+import airFilterImage from '@assets/products/air-filter.svg';
+import brakeKitImage from '@assets/products/brake-kit.svg';
+import carBatteryImage from '@assets/products/car-battery.svg';
+import carCareKitImage from '@assets/products/car-care-kit.svg';
+import dashCamImage from '@assets/products/dash-cam.svg';
+import engineOilImage from '@assets/products/engine-oil.svg';
+import floorMatsImage from '@assets/products/floor-mats.svg';
+import ledHeadlightsImage from '@assets/products/led-headlights.svg';
+import roofRackImage from '@assets/products/roof-rack.svg';
+import seatCoversImage from '@assets/products/seat-covers.svg';
+import sparkPlugsImage from '@assets/products/spark-plugs.svg';
+import tireInflatorImage from '@assets/products/tire-inflator.svg';
+import wiperBladesImage from '@assets/products/wiper-blades.svg';
 
-export const fashionImages = {
-  authLogin: trenchCoatImage,
-  authRegister: midiDressImage,
-  fallbackProduct: silkShirtImage,
-  trench: trenchCoatImage,
-  tote: leatherToteImage,
-  dress: midiDressImage,
-  loafers: suedeLoafersImage,
-  silkShirt: silkShirtImage,
-  sneaker: sneakersImage,
-  watch: watchImage,
-  hoodie: hoodieImage,
-  handbag: handbagImage,
-  jacket: utilityJacketImage,
-  runningSet: sportswearImage,
-  sunglasses: sunglassesImage,
-  reviewDetail: reviewDetailImage,
+export const productImages = {
+  authLogin: brakeKitImage,
+  authRegister: roofRackImage,
+  fallbackProduct: carCareKitImage,
+  brakeKit: brakeKitImage,
+  ledHeadlights: ledHeadlightsImage,
+  roofRack: roofRackImage,
+  floorMats: floorMatsImage,
+  dashCam: dashCamImage,
+  carBattery: carBatteryImage,
+  engineOil: engineOilImage,
+  airFilter: airFilterImage,
+  tireInflator: tireInflatorImage,
+  sparkPlugs: sparkPlugsImage,
+  wiperBlades: wiperBladesImage,
+  seatCovers: seatCoversImage,
+  carCareKit: carCareKitImage,
 } as const;

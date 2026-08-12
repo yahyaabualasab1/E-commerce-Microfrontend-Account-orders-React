@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="Iridium spark plugs">
+  <rect width="900" height="680" fill="#f5f1ec"/>
+  <g transform="translate(252 130) rotate(-22 200 220)">
+    <rect x="170" y="0" width="82" height="150" rx="20" fill="#c96b7a"/>
+    <rect x="154" y="126" width="114" height="174" rx="18" fill="#f0f2f4"/>
+    <g stroke="#9aa4b0" stroke-width="15"><path d="M154 160h114M154 202h114M154 244h114"/></g>
+    <rect x="176" y="284" width="70" height="154" rx="16" fill="#222b38"/>
+    <path d="M192 438v50h58" stroke="#222b38" stroke-width="18" stroke-linecap="round" fill="none"/>
+  </g>
+  <g transform="translate(404 134) rotate(18 200 220)" opacity=".88">
+    <rect x="170" y="0" width="82" height="150" rx="20" fill="#c96b7a"/>
+    <rect x="154" y="126" width="114" height="174" rx="18" fill="#f0f2f4"/>
+    <g stroke="#9aa4b0" stroke-width="15"><path d="M154 160h114M154 202h114M154 244h114"/></g>
+    <rect x="176" y="284" width="70" height="154" rx="16" fill="#222b38"/>
+    <path d="M192 438v50h58" stroke="#222b38" stroke-width="18" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="112" y="104" fill="#202632" font-family="Arial, sans-serif" font-size="24" font-weight="700">Iridium Spark Plugs</text>
+</svg>

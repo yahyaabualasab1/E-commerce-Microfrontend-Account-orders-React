@@ -3,7 +3,7 @@ import { mockReviews } from '@mocks/reviews';
 import { cloneMock, rejectMock, resolveMock } from '@services/mockApi';
 import { loadFromStorage, saveToStorage } from '@utils/storage';
 
-const reviewsStorageKey = 'account-orders.reviews.v2';
+const reviewsStorageKey = 'account-orders.reviews.car-parts.v1';
 
 function isLocalAssetUrl(value: string) {
   return value.length > 0 && !value.startsWith('http') && !value.startsWith('data:');

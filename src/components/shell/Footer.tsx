@@ -15,7 +15,7 @@ export function Footer() {
           Account & Orders Microfrontend
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          CBSE Fashion Marketplace
+          CBSE Car Parts Marketplace
         </Typography>
       </Stack>
     </Box>

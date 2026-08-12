@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="Synthetic engine oil">
+  <rect width="900" height="680" fill="#f4eee9"/>
+  <path d="M344 122h170l46 72v356c0 32-26 58-58 58H356c-32 0-58-26-58-58V194l46-72z" fill="#1e2632"/>
+  <path d="M344 122h170v86H344z" fill="#c96b7a"/>
+  <rect x="338" y="272" width="182" height="168" rx="22" fill="#f5f6f7"/>
+  <text x="374" y="344" fill="#1e2632" font-family="Arial, sans-serif" font-size="42" font-weight="900">5W</text>
+  <text x="366" y="392" fill="#c96b7a" font-family="Arial, sans-serif" font-size="42" font-weight="900">30</text>
+  <path d="M566 232c86 45 124 106 114 184" stroke="#d7a0a9" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <text x="112" y="104" fill="#202632" font-family="Arial, sans-serif" font-size="24" font-weight="700">Synthetic Engine Oil</text>
+</svg>

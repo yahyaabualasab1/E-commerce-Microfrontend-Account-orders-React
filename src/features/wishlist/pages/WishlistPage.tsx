@@ -40,12 +40,15 @@ type WishlistView = 'grid' | 'list';
 
 const categoryOptions: SelectOption<CategoryFilter>[] = [
   { label: 'All categories', value: 'All' },
-  { label: 'Men', value: 'Men' },
-  { label: 'Women', value: 'Women' },
-  { label: 'Shoes', value: 'Shoes' },
-  { label: 'Bags', value: 'Bags' },
+  { label: 'Brakes', value: 'Brakes' },
+  { label: 'Lighting', value: 'Lighting' },
+  { label: 'Exterior', value: 'Exterior' },
+  { label: 'Interior', value: 'Interior' },
+  { label: 'Electronics', value: 'Electronics' },
+  { label: 'Maintenance', value: 'Maintenance' },
+  { label: 'Engine', value: 'Engine' },
+  { label: 'Tires', value: 'Tires' },
   { label: 'Accessories', value: 'Accessories' },
-  { label: 'Sportswear', value: 'Sportswear' },
 ];
 
 const availabilityOptions: SelectOption<AvailabilityFilter>[] = [
@@ -220,8 +223,8 @@ export function WishlistPage() {
         />
         <PageHeader
           eyebrow="Wishlist"
-          title="Saved styles"
-          description="Curate favorite apparel, footwear, bags, and accessories before moving them into the shopping journey."
+          title="Saved parts"
+          description="Curate favorite car parts, tools, lighting, and accessories before moving them into the shopping journey."
           icon={<FavoriteBorderRoundedIcon />}
           iconColor="secondary.main"
           action={
@@ -345,7 +348,7 @@ export function WishlistPage() {
           <EmptyState
             icon={<FavoriteBorderRoundedIcon fontSize="large" />}
             title="Your wishlist is empty"
-            description="Saved fashion pieces will appear here so you can revisit them later."
+            description="Saved car parts and accessories will appear here so you can revisit them later."
             actionLabel="Restore mock wishlist"
             onAction={handleRestore}
             iconColor="secondary.main"
@@ -361,7 +364,7 @@ export function WishlistPage() {
         ) : (
           <>
             <Typography variant="body2" color="text.secondary" fontWeight={800}>
-              Showing {visibleProducts.length} of {filteredProducts.length} matching styles
+              Showing {visibleProducts.length} of {filteredProducts.length} matching parts
             </Typography>
             <Grid container spacing={2.5}>
               {visibleProducts.map((product) => (

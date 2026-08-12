@@ -21,9 +21,9 @@ export const mockUsers: MockUser[] = [
     dateOfBirth: '1994-06-18',
     createdAt: '2026-01-14T09:30:00.000Z',
     memberSince: '2026-01-14T09:30:00.000Z',
-    membershipLevel: 'Rose Gold Member',
+    membershipLevel: 'Pro Garage Member',
     loyaltyPoints: 2840,
-    preferredCategories: ['Women', 'Bags', 'Shoes'],
+    preferredCategories: ['Brakes', 'Lighting', 'Exterior'],
   },
   {
     id: 'user-jamie-lee',
@@ -41,8 +41,8 @@ export const mockUsers: MockUser[] = [
     dateOfBirth: '1992-03-10',
     createdAt: '2026-03-22T12:15:00.000Z',
     memberSince: '2026-03-22T12:15:00.000Z',
-    membershipLevel: 'Silver Member',
+    membershipLevel: 'Road Ready Member',
     loyaltyPoints: 930,
-    preferredCategories: ['Men', 'Sportswear'],
+    preferredCategories: ['Maintenance', 'Engine'],
   },
 ];

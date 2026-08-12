@@ -1,6 +1,6 @@
 # Account Orders Microfrontend
 
-Account Orders Microfrontend is a React and Vite application for the account area of a fashion and apparel marketplace. It provides authenticated customer screens for profile management, order history, wishlist items, product reviews, and a dashboard summary.
+Account Orders Microfrontend is a React and Vite application for the account area of a car parts and accessories marketplace. It provides authenticated customer screens for profile management, order history, wishlist items, product reviews, and a dashboard summary.
 
 The project currently uses an in-memory mock service layer with asynchronous Promise-based calls. This keeps the UI close to production behavior while remaining easy to run locally without a backend.
 
@@ -8,7 +8,7 @@ The project currently uses an in-memory mock service layer with asynchronous Pro
 
 - Live component URL: [https://e-commerce-microfrontend-account-or.vercel.app](https://e-commerce-microfrontend-account-or.vercel.app)
 - Repository: [https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-](https://github.com/yahyaabualasab1/E-commerce-Microfrontend-Account-orders-)
-- Group app type: Fashion & apparel marketplace
+- Group app type: Car parts & accessories
 - Owned role: Account & orders
 - Framework: React
 - Material Design library: Material UI

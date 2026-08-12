@@ -1,4 +1,4 @@
-import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
+import BuildCircleRoundedIcon from '@mui/icons-material/BuildCircleRounded';
 import { Box, Typography } from '@mui/material';
 
 type BrandMarkProps = {
@@ -23,7 +23,7 @@ export function BrandMark({ compact = false }: BrandMarkProps) {
           boxShadow: '0 12px 28px rgba(16, 19, 27, 0.24)',
         }}
       >
-        <LocalMallRoundedIcon fontSize="small" />
+        <BuildCircleRoundedIcon fontSize="small" />
       </Box>
       {!compact && (
         <Box sx={{ minWidth: 0 }}>
@@ -32,7 +32,7 @@ export function BrandMark({ compact = false }: BrandMarkProps) {
             component="p"
             sx={{ fontWeight: 800, lineHeight: 1.1, color: 'text.primary' }}
           >
-            Fashion Marketplace
+            Auto Parts Marketplace
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: 1 }}>
             Account & Orders

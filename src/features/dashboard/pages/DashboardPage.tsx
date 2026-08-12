@@ -27,7 +27,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 import { EmptyState } from '@components/feedback/EmptyState';
 import { ProductImage } from '@components/media/ProductImage';
-import { fashionImages } from '@config/images';
+import { productImages } from '@config/images';
 import { useAuth } from '@contexts/auth/useAuth';
 import { mockOrders } from '@mocks/orders';
 import { mockReviews } from '@mocks/reviews';
@@ -76,14 +76,20 @@ function formatDate(value: string) {
 }
 
 function getOrderImage(productId: string) {
-  if (productId.includes('blazer') || productId.includes('linen')) return fashionImages.jacket;
-  if (productId.includes('tank') || productId.includes('shirt')) return fashionImages.silkShirt;
-  if (productId.includes('belt') || productId.includes('scarf')) return fashionImages.sunglasses;
-  if (productId.includes('dress')) return fashionImages.dress;
-  if (productId.includes('boots')) return fashionImages.loafers;
-  if (productId.includes('denim')) return fashionImages.trench;
+  if (productId.includes('brake')) return productImages.brakeKit;
+  if (productId.includes('headlight')) return productImages.ledHeadlights;
+  if (productId.includes('rack')) return productImages.roofRack;
+  if (productId.includes('mat')) return productImages.floorMats;
+  if (productId.includes('cam')) return productImages.dashCam;
+  if (productId.includes('battery')) return productImages.carBattery;
+  if (productId.includes('oil')) return productImages.engineOil;
+  if (productId.includes('filter')) return productImages.airFilter;
+  if (productId.includes('inflator')) return productImages.tireInflator;
+  if (productId.includes('plug')) return productImages.sparkPlugs;
+  if (productId.includes('wiper')) return productImages.wiperBlades;
+  if (productId.includes('cover')) return productImages.seatCovers;
 
-  return fashionImages.fallbackProduct;
+  return productImages.fallbackProduct;
 }
 
 function SectionCard({
@@ -209,7 +215,7 @@ export function DashboardPage() {
     {
       label: 'Wishlist Items',
       value: mockWishlist.length.toString(),
-      helper: 'Saved styles waiting for you',
+      helper: 'Saved parts waiting for you',
       trend: '8 in stock',
       icon: FavoriteBorderRoundedIcon,
       color: 'secondary',
@@ -243,7 +249,7 @@ export function DashboardPage() {
     {
       id: 'order-delivered',
       title: 'Order delivered',
-      description: `${mockOrders[1]?.orderNumber ?? 'Recent order'} arrived and is ready to style.`,
+      description: `${mockOrders[1]?.orderNumber ?? 'Recent order'} arrived and is ready for your next service.`,
       occurredAt: 'Today, 10:24 AM',
       icon: LocalMallOutlinedIcon,
     },
@@ -257,7 +263,7 @@ export function DashboardPage() {
     {
       id: 'wishlist-updated',
       title: 'Wishlist updated',
-      description: `${mockWishlist[1]?.name ?? 'A saved style'} is still saved for later.`,
+      description: `${mockWishlist[1]?.name ?? 'A saved part'} is still saved for later.`,
       occurredAt: 'Aug 4, 2:05 PM',
       icon: FavoriteBorderRoundedIcon,
     },
@@ -321,7 +327,7 @@ export function DashboardPage() {
               <Box sx={{ minWidth: 0 }}>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 1.25 }}>
                   <Chip
-                    label={user?.membershipLevel ?? 'Rose Gold Member'}
+                    label={user?.membershipLevel ?? 'Pro Garage Member'}
                     color="secondary"
                     sx={{ color: 'secondary.contrastText' }}
                   />
@@ -337,8 +343,8 @@ export function DashboardPage() {
                   Welcome back, {firstName}
                 </Typography>
                 <Typography sx={{ mt: 1.25, color: 'rgba(255,255,255,0.78)', maxWidth: 680 }}>
-                  Your wardrobe moves fast. Keep your orders, saved pieces, and style feedback in
-                  one polished account space.
+                  Your vehicle projects move fast. Keep your orders, saved parts, and product
+                  feedback in one polished account space.
                 </Typography>
               </Box>
             </Stack>
@@ -445,7 +451,7 @@ export function DashboardPage() {
               <EmptyState
                 icon={<LocalMallOutlinedIcon fontSize="large" />}
                 title="No orders yet"
-                description="Once you place an order, your latest fashion purchases will appear here."
+                description="Once you place an order, your latest car parts purchases will appear here."
                 actionLabel="Browse wishlist"
                 onAction={() => void navigate('/wishlist')}
               />
@@ -501,8 +507,8 @@ export function DashboardPage() {
                               />
                             </Stack>
                             <Typography variant="body2" color="text.secondary">
-                              {firstProduct?.name ?? 'Fashion order'} and{' '}
-                              {Math.max(order.products.length - 1, 0)} more pieces
+                              {firstProduct?.name ?? 'Parts order'} and{' '}
+                              {Math.max(order.products.length - 1, 0)} more items
                             </Typography>
                             <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                               <Chip label={formatDate(order.orderDate)} size="small" />
@@ -590,7 +596,7 @@ export function DashboardPage() {
         <Grid size={{ xs: 12, lg: 7 }}>
           <SectionCard
             title="Wishlist preview"
-            subtitle="A few saved styles from your current wardrobe board."
+            subtitle="A few saved parts from your current garage board."
             action={
               <Button component={RouterLink} to="/wishlist" endIcon={<ArrowForwardRoundedIcon />}>
                 Open wishlist
@@ -600,8 +606,8 @@ export function DashboardPage() {
             {mockWishlist.length === 0 ? (
               <EmptyState
                 icon={<FavoriteBorderRoundedIcon fontSize="large" />}
-                title="No saved styles"
-                description="Save fashion pieces you love and they will appear on your dashboard."
+                title="No saved parts"
+                description="Save car parts and accessories you need and they will appear on your dashboard."
                 actionLabel="View wishlist"
                 onAction={() => void navigate('/wishlist')}
                 iconColor="secondary.main"

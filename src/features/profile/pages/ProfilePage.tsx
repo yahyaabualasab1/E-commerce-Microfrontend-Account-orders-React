@@ -47,7 +47,7 @@ import type { ProfileFormValues } from '@features/profile/schemas/profileSchema'
 import { getProfileCompletion } from '@features/profile/utils/profileCompletion';
 import {
   defaultNotificationPreferences,
-  fashionPreferenceOptions,
+  vehiclePreferenceOptions,
   getNotificationPreferencesStorageKey,
   getProfilePreferencesStorageKey,
   normalizeUser,
@@ -166,7 +166,7 @@ export function ProfilePage() {
     [normalizedUser, notificationPreferences, preferredCategories],
   );
   const completion = getProfileCompletion(profileUser);
-  const displayName = profileUser?.fullName ?? profileUser?.name ?? 'Fashion Member';
+  const displayName = profileUser?.fullName ?? profileUser?.name ?? 'Auto Member';
 
   const formValues: ProfileFormValues = {
     firstName: profileUser?.firstName ?? '',
@@ -223,7 +223,7 @@ export function ProfilePage() {
 
     setPreferredCategories(nextPreferences);
     saveToStorage(getProfilePreferencesStorageKey(profileUser.id), nextPreferences);
-    setNotice({ message: 'Fashion preferences saved.', severity: 'success' });
+    setNotice({ message: 'Vehicle preferences saved.', severity: 'success' });
   };
 
   const handleNotificationChange = (key: keyof NotificationPreferences, value: boolean) => {
@@ -256,7 +256,7 @@ export function ProfilePage() {
     {
       label: 'Wishlist Items',
       value: mockWishlist.length.toString(),
-      helper: 'Saved fashion pieces',
+      helper: 'Saved car parts',
       icon: <AutoAwesomeOutlinedIcon />,
       color: 'secondary.main',
     },
@@ -280,9 +280,9 @@ export function ProfilePage() {
     orderUpdates: 'Order updates',
     wishlistPriceDrops: 'Wishlist price-drop alerts',
     reviewReminders: 'Review reminders',
-    fashionRecommendations: 'Fashion recommendations',
+    partsRecommendations: 'Parts recommendations',
     promotionalEmails: 'Promotional emails',
-    newCollectionAlerts: 'New collection alerts',
+    newCollectionAlerts: 'New arrivals alerts',
   };
 
   return (
@@ -559,13 +559,13 @@ export function ProfilePage() {
 
           <Grid size={{ xs: 12, md: 6 }}>
             <ProfileSectionCard
-              title="Fashion Preferences"
+              title="Vehicle Preferences"
               subtitle="Personalize marketplace recommendations"
               icon={<AutoAwesomeOutlinedIcon />}
             >
               <Autocomplete
                 multiple
-                options={fashionPreferenceOptions}
+                options={vehiclePreferenceOptions}
                 value={preferredCategories}
                 onChange={(_, value) => handlePreferencesChange(value)}
                 renderTags={(value, getTagProps) =>
@@ -579,7 +579,7 @@ export function ProfilePage() {
                   ))
                 }
                 renderInput={(params) => (
-                  <TextField {...params} label="Preferred categories" placeholder="Choose styles" />
+                  <TextField {...params} label="Preferred categories" placeholder="Choose parts" />
                 )}
               />
               <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>

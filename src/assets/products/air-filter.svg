@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="Engine air filter">
+  <rect width="900" height="680" fill="#eff3f2"/>
+  <rect x="186" y="190" width="528" height="302" rx="36" fill="#242d39"/>
+  <rect x="236" y="238" width="428" height="206" rx="20" fill="#f2d9dd"/>
+  <g stroke="#c96b7a" stroke-width="18" stroke-linecap="round">
+    <path d="M276 260v162M330 260v162M384 260v162M438 260v162M492 260v162M546 260v162M600 260v162"/>
+  </g>
+  <path d="M158 538c86-48 162-48 228 0s142 48 228 0" stroke="#8aa1b7" stroke-width="17" stroke-linecap="round" fill="none"/>
+  <text x="112" y="104" fill="#202632" font-family="Arial, sans-serif" font-size="24" font-weight="700">Engine Air Filter</text>
+</svg>

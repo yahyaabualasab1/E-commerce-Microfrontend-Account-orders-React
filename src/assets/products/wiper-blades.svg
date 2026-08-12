@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="Windshield wiper blades">
+  <rect width="900" height="680" fill="#eef2f5"/>
+  <path d="M154 460c92-122 220-196 384-222 48-8 98-10 150-6" stroke="#222b38" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <path d="M188 510c124-118 274-178 450-180" stroke="#c96b7a" stroke-width="34" stroke-linecap="round" fill="none"/>
+  <path d="M250 520l340-250" stroke="#222b38" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="250" cy="520" r="30" fill="#222b38"/>
+  <path d="M206 218c96-52 188-52 276 0s178 52 270 0" stroke="#8ca2b8" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <text x="112" y="104" fill="#202632" font-family="Arial, sans-serif" font-size="24" font-weight="700">Premium Wiper Blades</text>
+</svg>

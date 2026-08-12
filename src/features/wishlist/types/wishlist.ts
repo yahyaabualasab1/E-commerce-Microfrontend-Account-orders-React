@@ -2,7 +2,16 @@ export interface WishlistProduct {
   id: string;
   name: string;
   brand: string;
-  category: 'Men' | 'Women' | 'Shoes' | 'Bags' | 'Accessories' | 'Sportswear';
+  category:
+    | 'Brakes'
+    | 'Lighting'
+    | 'Exterior'
+    | 'Interior'
+    | 'Electronics'
+    | 'Maintenance'
+    | 'Engine'
+    | 'Tires'
+    | 'Accessories';
   description: string;
   image: string;
   images: string[];

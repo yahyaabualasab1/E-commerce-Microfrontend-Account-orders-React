@@ -45,7 +45,7 @@ function toAuthUser(user: MockUser): AuthUser {
 
 function createUserFromEmail(email: string, name?: string): MockUser {
   const normalizedEmail = email.trim().toLowerCase();
-  const fallbackName = normalizedEmail.split('@')[0]?.replace(/[._-]/g, ' ') || 'Fashion Member';
+  const fallbackName = normalizedEmail.split('@')[0]?.replace(/[._-]/g, ' ') || 'Auto Member';
 
   return {
     id: crypto.randomUUID(),
@@ -62,7 +62,7 @@ function createUserFromEmail(email: string, name?: string): MockUser {
     postalCode: '10013',
     createdAt: new Date().toISOString(),
     memberSince: new Date().toISOString(),
-    membershipLevel: 'Rose Gold Member',
+    membershipLevel: 'Pro Garage Member',
     loyaltyPoints: 500,
   };
 }

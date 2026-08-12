@@ -24,7 +24,7 @@ import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthBrandPanel } from '@components/auth/AuthBrandPanel';
 import { AppSnackbar, type AppNotice } from '@components/feedback/AppSnackbar';
-import { fashionImages } from '@config/images';
+import { productImages } from '@config/images';
 import { useAuth } from '@contexts/auth/useAuth';
 import { loginSchema, type LoginFormValues } from '@features/auth/schemas/authSchemas';
 import { getErrorMessage } from '@utils/asyncError';
@@ -87,11 +87,11 @@ export function LoginPage() {
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <AuthBrandPanel
             compact
-            image={fashionImages.authLogin}
-            headline="Style that feels like you."
-            description="Curated fashion, secure account access, and effortless order tracking."
+            image={productImages.authLogin}
+            headline="Parts that keep you moving."
+            description="Trusted car parts, secure account access, and effortless order tracking."
             features={[
-              'Curated fashion collections',
+              'Curated parts collections',
               'Secure account experience',
               'Easy order tracking',
             ]}
@@ -100,11 +100,11 @@ export function LoginPage() {
 
         <Box sx={{ display: { xs: 'none', lg: 'block' }, p: 2 }}>
           <AuthBrandPanel
-            image={fashionImages.authLogin}
-            headline="Style that feels like you."
-            description="Enter a marketplace account designed around refined style, saved favorites, and complete order clarity."
+            image={productImages.authLogin}
+            headline="Parts that keep you moving."
+            description="Enter a marketplace account designed around vehicle care, saved parts, and complete order clarity."
             features={[
-              'Curated fashion collections',
+              'Curated parts collections',
               'Secure account experience',
               'Easy order tracking',
             ]}

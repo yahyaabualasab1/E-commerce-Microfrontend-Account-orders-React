@@ -17,7 +17,7 @@ export function getProfileCompletion(user: AuthUser | null) {
     { label: 'City', complete: Boolean(user?.city?.trim()) },
     { label: 'Country', complete: Boolean(user?.country?.trim()) },
     { label: 'Postal code', complete: Boolean(user?.postalCode?.trim()) },
-    { label: 'Fashion preference', complete: Boolean(user?.preferredCategories?.length) },
+    { label: 'Vehicle parts preference', complete: Boolean(user?.preferredCategories?.length) },
   ];
   const completed = fields.filter((field) => field.complete);
 

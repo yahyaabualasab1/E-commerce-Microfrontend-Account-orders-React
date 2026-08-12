@@ -37,7 +37,7 @@ export interface NotificationPreferences {
   orderUpdates: boolean;
   wishlistPriceDrops: boolean;
   reviewReminders: boolean;
-  fashionRecommendations: boolean;
+  partsRecommendations: boolean;
   promotionalEmails: boolean;
   newCollectionAlerts: boolean;
 }

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Account & Orders microfrontend for a fashion and apparel marketplace.",
+  "description": "Account & Orders microfrontend for a car parts and accessories marketplace.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
