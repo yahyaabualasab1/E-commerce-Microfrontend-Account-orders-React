@@ -47,7 +47,7 @@ function toWishlistProduct(product: CatalogProduct): WishlistProduct {
     inStock: true,
     stockQuantity: 1,
     dateAdded: new Date().toISOString(),
-    sku: `CAT-${productId}`
+    sku: `CAT-${productId}`,
   };
 }
 
@@ -66,12 +66,42 @@ function isCatalogProduct(value: unknown): value is CatalogProduct {
   );
 }
 
+function sendWishlistStateToShell() {
+  if (window.parent === window) {
+    return;
+  }
+
+  void wishlistService
+    .getWishlist()
+    .then((products) => {
+      window.parent.postMessage(
+        {
+          source: 'account',
+          type: 'account:wishlist-state',
+          detail: {
+            productIds: products.map((product) => product.id),
+          },
+        },
+        '*',
+      );
+    })
+    .catch(() => undefined);
+}
+
 export function startShellMessageBridge() {
   const handleMessage = (event: MessageEvent<unknown>) => {
     const message = event.data as ShellMessage;
 
+    if (message?.source !== 'shell') {
+      return;
+    }
+
+    if (message.type === 'shell:request-wishlist-state') {
+      sendWishlistStateToShell();
+      return;
+    }
+
     if (
-      message?.source !== 'shell' ||
       message.type !== 'shell:toggle-wishlist' ||
       !message.detail ||
       !isCatalogProduct(message.detail.product)
