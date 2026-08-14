@@ -5,8 +5,8 @@ import { loadFromStorage, saveToStorage } from '@utils/storage';
 
 const wishlistStorageKey = 'account-orders.wishlist.car-parts.v1';
 
-function isLocalAssetUrl(value: string) {
-  return value.length > 0 && !value.startsWith('http') && !value.startsWith('data:');
+function isProductImageUrl(value: string) {
+  return value.trim().length > 0;
 }
 
 function isWishlistProduct(value: unknown): value is WishlistProduct {
@@ -21,9 +21,9 @@ function isWishlistProduct(value: unknown): value is WishlistProduct {
     typeof product.name === 'string' &&
     typeof product.brand === 'string' &&
     typeof product.image === 'string' &&
-    isLocalAssetUrl(product.image) &&
+   isProductImageUrl(product.image) &&
     Array.isArray(product.images) &&
-    product.images.every((image) => typeof image === 'string' && isLocalAssetUrl(image)) &&
+    product.images.every((image) => typeof image === 'string' && isProductImageUrl(image)) &&
     typeof product.price === 'number' &&
     typeof product.rating === 'number' &&
     typeof product.dateAdded === 'string'
@@ -54,6 +54,18 @@ export const wishlistService = {
     wishlist = loadWishlist();
     return resolveMock(wishlist);
   },
+
+async addWishlistItem(product: WishlistProduct): Promise<WishlistProduct[]> {
+  const alreadyExists = wishlist.some((item) => item.id === product.id);
+
+  if (alreadyExists) {
+    return resolveMock(wishlist);
+  }
+
+  persistWishlist([product, ...wishlist]);
+  return resolveMock(wishlist);
+},
+
 
   async removeWishlistItem(productId: string): Promise<WishlistProduct[]> {
     if (!wishlist.some((product) => product.id === productId)) {

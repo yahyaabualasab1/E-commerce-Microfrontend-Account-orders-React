@@ -1,6 +1,6 @@
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import { Grid, Stack } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { EmptyState } from '@components/feedback/EmptyState';
 import { ErrorState } from '@components/feedback/ErrorState';
@@ -24,6 +24,18 @@ export function OrdersPage() {
   } = useAsyncResource<Order[]>(loadOrders, {
     errorMessage: 'Orders could not be loaded.',
   });
+
+    useEffect(() => {
+    const handleOrdersUpdate = () => {
+      void reload();
+    };
+
+    window.addEventListener('account:orders-updated', handleOrdersUpdate);
+
+    return () => {
+      window.removeEventListener('account:orders-updated', handleOrdersUpdate);
+    };
+  }, [reload]);
 
   const handleRestore = () => {
     void orderService.resetOrders().then(setData);

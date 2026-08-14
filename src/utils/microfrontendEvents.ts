@@ -51,4 +51,25 @@ export function dispatchWishlistMoveToCart(product: WishlistProduct) {
     quantity: 1,
     source: 'account-orders',
   });
+
+    if (window.parent !== window) {
+    window.parent.postMessage(
+      {
+        source: 'account',
+        type: 'account:move-to-cart',
+        detail: {
+          product: {
+            id: product.id,
+            name: product.name,
+            brand: product.brand,
+            partNumber: product.sku,
+            price: product.price,
+            quantity: 1,
+            image: product.image
+          }
+        }
+      },
+      '*'
+    );
+  }
 }

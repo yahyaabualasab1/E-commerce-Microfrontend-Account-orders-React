@@ -16,7 +16,7 @@ import {
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { ConfirmDialog } from '@components/controls/ConfirmDialog';
 import { FilterSelect, type SelectOption } from '@components/controls/FilterSelect';
@@ -88,6 +88,18 @@ export function WishlistPage() {
     errorMessage: 'Wishlist could not be loaded.',
   });
 
+
+  useEffect(() => {
+    const handleWishlistUpdate = () => {
+      void reload();
+    };
+
+    window.addEventListener('account:wishlist-updated', handleWishlistUpdate);
+
+    return () => {
+      window.removeEventListener('account:wishlist-updated', handleWishlistUpdate);
+    };
+  }, [reload]);
   const brands = useMemo(() => {
     const uniqueBrands = Array.from(
       new Set((products ?? []).map((product) => product.brand)),

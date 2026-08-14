@@ -9,6 +9,17 @@ export const orderService = {
     return resolveMock(orders);
   },
 
+
+  async addOrder(order: Order): Promise<Order[]> {
+  const alreadyExists = orders.some((currentOrder) => currentOrder.id === order.id);
+
+  if (!alreadyExists) {
+    orders = [order, ...orders];
+  }
+
+  return resolveMock(orders);
+},
+
   async getOrderById(orderId: string): Promise<Order | null> {
     const order = orders.find((currentOrder) => currentOrder.id === orderId) ?? null;
     return resolveMock(order);
