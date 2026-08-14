@@ -77,7 +77,9 @@ export function WishlistPage() {
   const [visibleCount, setVisibleCount] = useState(initialVisibleCount);
   const [removeTarget, setRemoveTarget] = useState<WishlistProduct | null>(null);
   const [clearDialogOpen, setClearDialogOpen] = useState(false);
+
   const loadWishlist = useCallback(() => wishlistService.getWishlist(), []);
+
   const {
     data: products,
     loading,
@@ -87,7 +89,6 @@ export function WishlistPage() {
   } = useAsyncResource<WishlistProduct[]>(loadWishlist, {
     errorMessage: 'Wishlist could not be loaded.',
   });
-
 
   useEffect(() => {
     const handleWishlistUpdate = () => {
@@ -100,10 +101,12 @@ export function WishlistPage() {
       window.removeEventListener('account:wishlist-updated', handleWishlistUpdate);
     };
   }, [reload]);
+
   const brands = useMemo(() => {
     const uniqueBrands = Array.from(
       new Set((products ?? []).map((product) => product.brand)),
     ).sort();
+
     return ['All', ...uniqueBrands];
   }, [products]);
 
@@ -123,6 +126,7 @@ export function WishlistPage() {
             .join(' ')
             .toLowerCase()
             .includes(normalizedQuery);
+
         const matchesCategory = category === 'All' || product.category === category;
         const matchesBrand = brand === 'All' || product.brand === brand;
         const matchesAvailability =
@@ -148,6 +152,7 @@ export function WishlistPage() {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const productCount = products?.length ?? 0;
   const totalValue = (products ?? []).reduce((sum, product) => sum + product.price, 0);
+
   const hasFilters =
     Boolean(query.trim()) || category !== 'All' || brand !== 'All' || availability !== 'All';
 
@@ -157,15 +162,31 @@ export function WishlistPage() {
     }
 
     const product = removeTarget;
+
     void wishlistService
       .removeWishlistItem(product.id)
       .then((nextProducts) => {
         setData(nextProducts);
         setRemoveTarget(null);
+
         dispatchAccountEvent('account:wishlist-item-removed', {
           productId: product.id,
           source: 'account-orders',
         });
+
+        if (window.parent !== window) {
+          window.parent.postMessage(
+            {
+              source: 'account',
+              type: 'account:wishlist-item-removed',
+              detail: {
+                productId: product.id,
+              },
+            },
+            '*',
+          );
+        }
+
         setNotice({ message: `${product.name} removed from wishlist.`, severity: 'info' });
       })
       .catch((removeError: unknown) => {
@@ -178,15 +199,31 @@ export function WishlistPage() {
 
   const handleClearAll = () => {
     const productIds = (products ?? []).map((product) => product.id);
+
     void wishlistService
       .clearWishlist()
       .then((nextProducts) => {
         setData(nextProducts);
         setClearDialogOpen(false);
+
         dispatchAccountEvent('account:wishlist-cleared', {
           productIds,
           source: 'account-orders',
         });
+
+        if (window.parent !== window) {
+          window.parent.postMessage(
+            {
+              source: 'account',
+              type: 'account:wishlist-cleared',
+              detail: {
+                productIds,
+              },
+            },
+            '*',
+          );
+        }
+
         setNotice({ message: 'Wishlist cleared.', severity: 'info' });
       })
       .catch((clearError: unknown) => {
@@ -233,6 +270,7 @@ export function WishlistPage() {
         <BreadcrumbNavigation
           items={[{ label: 'Account', href: '/dashboard' }, { label: 'Wishlist' }]}
         />
+
         <PageHeader
           eyebrow="Wishlist"
           title="Saved parts"
@@ -254,11 +292,7 @@ export function WishlistPage() {
         <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
           <CardContent sx={{ p: { xs: 2, sm: 2.5 }, '&:last-child': { pb: { xs: 2, sm: 2.5 } } }}>
             <Stack spacing={2}>
-              <Stack
-                direction={{ xs: 'column', lg: 'row' }}
-                spacing={1.5}
-                alignItems={{ lg: 'center' }}
-              >
+              <Stack direction={{ xs: 'column', lg: 'row' }} spacing={1.5} alignItems={{ lg: 'center' }}>
                 <TextField
                   size="small"
                   label="Search wishlist"
@@ -275,37 +309,19 @@ export function WishlistPage() {
                   }}
                   sx={{ minWidth: { lg: 280 }, flexGrow: 1 }}
                 />
-                <FilterSelect
-                  label="Category"
-                  value={category}
-                  options={categoryOptions}
-                  onChange={setCategory}
-                />
-                <FilterSelect
-                  label="Brand"
-                  value={brand}
-                  options={brandOptions}
-                  onChange={setBrand}
-                />
+
+                <FilterSelect label="Category" value={category} options={categoryOptions} onChange={setCategory} />
+                <FilterSelect label="Brand" value={brand} options={brandOptions} onChange={setBrand} />
                 <FilterSelect
                   label="Availability"
                   value={availability}
                   options={availabilityOptions}
                   onChange={setAvailability}
                 />
-                <FilterSelect
-                  label="Sort by"
-                  value={sort}
-                  options={sortOptions}
-                  onChange={setSort}
-                />
+                <FilterSelect label="Sort by" value={sort} options={sortOptions} onChange={setSort} />
               </Stack>
 
-              <Stack
-                direction={{ xs: 'column', sm: 'row' }}
-                spacing={1.5}
-                justifyContent="space-between"
-              >
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} justifyContent="space-between">
                 <ToggleButtonGroup
                   exclusive
                   size="small"
@@ -324,12 +340,9 @@ export function WishlistPage() {
                     <ViewAgendaRoundedIcon fontSize="small" />
                   </ToggleButton>
                 </ToggleButtonGroup>
+
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
-                  <Button
-                    startIcon={<RestartAltRoundedIcon />}
-                    onClick={resetFilters}
-                    disabled={!hasFilters}
-                  >
+                  <Button startIcon={<RestartAltRoundedIcon />} onClick={resetFilters} disabled={!hasFilters}>
                     Reset filters
                   </Button>
                   <Button
@@ -378,6 +391,7 @@ export function WishlistPage() {
             <Typography variant="body2" color="text.secondary" fontWeight={800}>
               Showing {visibleProducts.length} of {filteredProducts.length} matching parts
             </Typography>
+
             <Grid container spacing={2.5}>
               {visibleProducts.map((product) => (
                 <Grid
@@ -393,6 +407,7 @@ export function WishlistPage() {
                 </Grid>
               ))}
             </Grid>
+
             {visibleCount < filteredProducts.length && (
               <Button
                 variant="outlined"
@@ -417,6 +432,7 @@ export function WishlistPage() {
         onClose={() => setRemoveTarget(null)}
         onConfirm={handleRemove}
       />
+
       <ConfirmDialog
         open={clearDialogOpen}
         title="Clear wishlist?"
@@ -426,6 +442,7 @@ export function WishlistPage() {
         onClose={() => setClearDialogOpen(false)}
         onConfirm={handleClearAll}
       />
+
       <AppSnackbar notice={notice} onClose={() => setNotice(null)} />
     </>
   );
