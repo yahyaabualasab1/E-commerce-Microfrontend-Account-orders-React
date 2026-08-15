@@ -30,6 +30,10 @@ export type AccountEventMap = {
   };
 };
 
+function getSharedImageUrl(image: string) {
+  return new URL(image, window.location.origin).href;
+}
+
 export function dispatchAccountEvent<TEventName extends keyof AccountEventMap>(
   eventName: TEventName,
   detail: AccountEventMap[TEventName],
@@ -52,7 +56,7 @@ export function dispatchWishlistMoveToCart(product: WishlistProduct) {
     source: 'account-orders',
   });
 
-    if (window.parent !== window) {
+  if (window.parent !== window) {
     window.parent.postMessage(
       {
         source: 'account',
@@ -65,11 +69,11 @@ export function dispatchWishlistMoveToCart(product: WishlistProduct) {
             partNumber: product.sku,
             price: product.price,
             quantity: 1,
-            image: product.image
-          }
-        }
+            image: getSharedImageUrl(product.image),
+          },
+        },
       },
-      '*'
+      '*',
     );
   }
 }
