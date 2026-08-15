@@ -3,7 +3,7 @@ import { mockWishlist } from '@mocks/wishlist';
 import { cloneMock, rejectMock, resolveMock } from '@services/mockApi';
 import { loadFromStorage, saveToStorage } from '@utils/storage';
 
-const wishlistStorageKey = 'account-orders.wishlist.car-parts.v1';
+const wishlistStorageKey = 'account-orders.wishlist.car-parts.v2';
 
 function isProductImageUrl(value: string) {
   return value.trim().length > 0;
