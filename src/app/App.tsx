@@ -41,6 +41,9 @@ function ShellAuthBridge() {
 
     window.addEventListener('message', handleMessage);
 
+    // يرسل الحالة مباشرة عند فتح Account، وبعد كل Login أو Logout.
+    sendAuthStatus();
+
     return () => {
       window.removeEventListener('message', handleMessage);
     };
